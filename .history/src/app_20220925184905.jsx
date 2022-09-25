@@ -75,10 +75,9 @@ function App({ authService }) {
             <>
               <input
                 ref={numRef}
-                type='tel'
+                type='text'
                 placeholder='코드입력'
                 className={styles.input}
-                maxLength={6}
               />
               <button
                 className={styles.btn}
