@@ -1,18 +1,17 @@
 import styles from './app.module.css';
 import * as auth from './services/auth.js';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-function App({ authService }) {
+function App() {
   const telRef = useRef();
   const numRef = useRef();
   const nameRef = useRef();
-  const ageRef = useRef();
   const [showCheck, setShowCheck] = useState(false);
   const [isAuth, setIsAuth] = useState(true);
   const [sex, setSex] = useState('male');
-  const [uid, setUid] = useState('');
-  const [refreshToken, setRefreshToken] = useState('');
-  const checkUser = authService.checkUser;
+  const [userInform, setUserInform] = useState({});
   const onClick = () => {
     const phoneNum = telRef.current.value;
     if (phoneNum.length != 10) {
@@ -23,15 +22,7 @@ function App({ authService }) {
   };
   const onConfirm = () => {
     const number = numRef.current.value;
-    auth.checkCode(number, setIsAuth, setUid, checkUser, setRefreshToken);
-  };
-  const makeUser = () => {
-    const name = nameRef.current.value;
-    const age = ageRef.current.value;
-    console.log(uid, name, sex, age);
-    authService.makeUser(uid, name, sex, age).then(() => {
-      window.ReactNativeWebView.postMessage(refreshToken);
-    });
+    auth.checkCode(number, setIsAuth, setUserInform);
   };
   let male;
   let female;
@@ -122,16 +113,7 @@ function App({ authService }) {
               여자
             </div>
           </div>
-          <div>나이입력</div>
-          <input type='text' ref={ageRef} />
-          <button
-            className={styles.btn}
-            onClick={() => {
-              makeUser();
-            }}
-          >
-            같이 더치 시작하기
-          </button>
+          <button className={styles.btn}>같이 더치 시작하기</button>
         </>
       )}
     </section>

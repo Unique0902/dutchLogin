@@ -1,17 +1,18 @@
 import styles from './app.module.css';
 import * as auth from './services/auth.js';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App({ authService }) {
   const telRef = useRef();
   const numRef = useRef();
   const nameRef = useRef();
-  const ageRef = useRef();
   const [showCheck, setShowCheck] = useState(false);
   const [isAuth, setIsAuth] = useState(true);
   const [sex, setSex] = useState('male');
   const [uid, setUid] = useState('');
-  const [refreshToken, setRefreshToken] = useState('');
+  const [age, setAge] = useState('');
   const checkUser = authService.checkUser;
   const onClick = () => {
     const phoneNum = telRef.current.value;
@@ -23,15 +24,11 @@ function App({ authService }) {
   };
   const onConfirm = () => {
     const number = numRef.current.value;
-    auth.checkCode(number, setIsAuth, setUid, checkUser, setRefreshToken);
+    auth.checkCode(number, setIsAuth, setUid, checkUser);
   };
   const makeUser = () => {
     const name = nameRef.current.value;
-    const age = ageRef.current.value;
-    console.log(uid, name, sex, age);
-    authService.makeUser(uid, name, sex, age).then(() => {
-      window.ReactNativeWebView.postMessage(refreshToken);
-    });
+    authService.makeUser(uid, name, sex, age);
   };
   let male;
   let female;
@@ -123,7 +120,6 @@ function App({ authService }) {
             </div>
           </div>
           <div>나이입력</div>
-          <input type='text' ref={ageRef} />
           <button
             className={styles.btn}
             onClick={() => {

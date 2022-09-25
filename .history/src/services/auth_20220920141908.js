@@ -46,7 +46,7 @@ const sendMsg = (phoneNumber, setShowCheck) => {
       appVerifier.reset(window.recaptchaWidgetId);
     });
 };
-const checkCode = (code, setIsAuth, setUid, checkUser, setRefreshToken) => {
+const checkCode = (code, setIsAuth, setUid) => {
   window.confirmationResult
     .confirm(code)
     .then((result) => {
@@ -55,17 +55,10 @@ const checkCode = (code, setIsAuth, setUid, checkUser, setRefreshToken) => {
       const uid = user.uid;
       console.log('인증성공!!');
       console.log(result);
-      checkUser(uid).then((result) => {
-        if (result.name) {
-          window.ReactNativeWebView.postMessage(
-            user.stsTokenManager.refreshToken
-          );
-        } else {
-          setIsAuth(false);
-          setUid(uid);
-          setRefreshToken(user.stsTokenManager.refreshToken);
-        }
-      });
+      setIsAuth(false);
+      setUid(uid);
+
+      // ...
     })
     .catch((error) => {
       console.log('인증실패!!');

@@ -30,7 +30,7 @@ function App({ authService }) {
     const age = ageRef.current.value;
     console.log(uid, name, sex, age);
     authService.makeUser(uid, name, sex, age).then(() => {
-      window.ReactNativeWebView.postMessage(refreshToken);
+      window.ReactNativeWebView.postMessage('token');
     });
   };
   let male;

@@ -1,18 +1,14 @@
 import styles from './app.module.css';
 import * as auth from './services/auth.js';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-function App({ authService }) {
+function App() {
   const telRef = useRef();
   const numRef = useRef();
-  const nameRef = useRef();
-  const ageRef = useRef();
   const [showCheck, setShowCheck] = useState(false);
   const [isAuth, setIsAuth] = useState(true);
-  const [sex, setSex] = useState('male');
-  const [uid, setUid] = useState('');
-  const [refreshToken, setRefreshToken] = useState('');
-  const checkUser = authService.checkUser;
   const onClick = () => {
     const phoneNum = telRef.current.value;
     if (phoneNum.length != 10) {
@@ -23,28 +19,8 @@ function App({ authService }) {
   };
   const onConfirm = () => {
     const number = numRef.current.value;
-    auth.checkCode(number, setIsAuth, setUid, checkUser, setRefreshToken);
+    auth.checkCode(number, setIsAuth);
   };
-  const makeUser = () => {
-    const name = nameRef.current.value;
-    const age = ageRef.current.value;
-    console.log(uid, name, sex, age);
-    authService.makeUser(uid, name, sex, age).then(() => {
-      window.ReactNativeWebView.postMessage(refreshToken);
-    });
-  };
-  let male;
-  let female;
-  const selectSex = () => {
-    if (sex === 'male') {
-      male = styles.selected;
-      female = styles.notSelected;
-    } else {
-      male = styles.notSelected;
-      female = styles.selected;
-    }
-  };
-  selectSex();
   return (
     <section className={styles.container}>
       {isAuth && (
@@ -99,39 +75,15 @@ function App({ authService }) {
             type='text'
             name='name'
             id='name'
-            ref={nameRef}
             className={styles.input}
             placeholder='닉네임 입력'
           />
           <label htmlFor='sex'>성별 선택</label>
           <div id='sex' className={styles.sexBtns}>
-            <div
-              className={`${styles.sexBtn} ${male}`}
-              onClick={() => {
-                setSex('male');
-              }}
-            >
-              남자
-            </div>
-            <div
-              className={`${styles.sexBtn} ${female}`}
-              onClick={() => {
-                setSex('female');
-              }}
-            >
-              여자
-            </div>
+            <div className={styles.sexBtn}>남자</div>
+            <div className={styles.sexBtn}>여자</div>
           </div>
-          <div>나이입력</div>
-          <input type='text' ref={ageRef} />
-          <button
-            className={styles.btn}
-            onClick={() => {
-              makeUser();
-            }}
-          >
-            같이 더치 시작하기
-          </button>
+          <button className={styles.btn}>같이 더치 시작하기</button>
         </>
       )}
     </section>

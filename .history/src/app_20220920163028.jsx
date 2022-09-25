@@ -11,7 +11,6 @@ function App({ authService }) {
   const [isAuth, setIsAuth] = useState(true);
   const [sex, setSex] = useState('male');
   const [uid, setUid] = useState('');
-  const [refreshToken, setRefreshToken] = useState('');
   const checkUser = authService.checkUser;
   const onClick = () => {
     const phoneNum = telRef.current.value;
@@ -23,14 +22,14 @@ function App({ authService }) {
   };
   const onConfirm = () => {
     const number = numRef.current.value;
-    auth.checkCode(number, setIsAuth, setUid, checkUser, setRefreshToken);
+    auth.checkCode(number, setIsAuth, setUid, checkUser);
   };
   const makeUser = () => {
     const name = nameRef.current.value;
     const age = ageRef.current.value;
     console.log(uid, name, sex, age);
     authService.makeUser(uid, name, sex, age).then(() => {
-      window.ReactNativeWebView.postMessage(refreshToken);
+      window.ReactNativeWebView.postMessage('back');
     });
   };
   let male;

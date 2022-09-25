@@ -22,7 +22,6 @@
   border-radius: 20px;
   border: none;
   margin-bottom: 1em;
-  cursor: pointer;
 }
 
 .sexBtns {
@@ -40,10 +39,4 @@
 }
 .sexBtn:hover {
   background-color: lightcoral;
-}
-.selected {
-  background-color: coral;
-}
-.notSelected {
-  background-color: white;
 }
