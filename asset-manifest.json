@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dutchLogin/static/css/main.ff4b4743.css",
+    "main.js": "/dutchLogin/static/js/main.3da5d724.js",
+    "index.html": "/dutchLogin/index.html",
+    "main.ff4b4743.css.map": "/dutchLogin/static/css/main.ff4b4743.css.map",
+    "main.3da5d724.js.map": "/dutchLogin/static/js/main.3da5d724.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff4b4743.css",
+    "static/js/main.3da5d724.js"
+  ]
+}
