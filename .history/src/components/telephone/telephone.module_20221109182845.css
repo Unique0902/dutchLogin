@@ -1,0 +1,43 @@
+.input {
+  width: 90%;
+  height: 3em;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #fbba00;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.telephoneSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.description {
+}
+.title {
+  margin: 0;
+  margin-bottom: 1em;
+}
+.btn {
+  width: 90%;
+  height: 4em;
+  background-color: #fbba00;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.activated {
+  cursor: pointer;
+  background-color: #fbba00;
+  color: black;
+}
+.unactivated {
+  cursor: initial;
+  background: none;
+  border: 1px black solid;
+  color: lightgray;
+}

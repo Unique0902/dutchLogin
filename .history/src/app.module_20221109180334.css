@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em;
+}
+.input {
+  width: 90%;
+  height: 3em;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #fbba00;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.description {
+}
+.btn {
+  width: 90%;
+  height: 4em;
+  background-color: #fbba00;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.sexBtns {
+  display: flex;
+}
+.sexBtn {
+  width: 40%;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px black solid;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 0.2em;
+}
+.sexBtn:hover {
+  background-color: lightcoral;
+}
+.selected {
+  background-color: #fbba00;
+}
+.notSelected {
+  background-color: white;
+}
+.activated {
+  cursor: pointer;
+  background-color: #fbba00;
+  color: black;
+}
+.unactivated {
+  cursor: initial;
+  background: none;
+  border: 1px black solid;
+  color: lightgray;
+}

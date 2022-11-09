@@ -1,0 +1,90 @@
+.sexSec {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.titleSec {
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+.title {
+  text-align: center;
+}
+.sexBtnSec {
+  height: 75%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.warnText {
+  color: red;
+  font-weight: 600;
+}
+
+.notSelected {
+  background-color: white;
+}
+.activated {
+  cursor: pointer;
+  background-color: #fbba00;
+  color: black;
+}
+.sexBtn:hover {
+  background-color: lightcoral;
+}
+.sexBtns {
+  display: flex;
+  width: 100%;
+}
+.sexBtn {
+  width: 60%;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px black solid;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 0.2em;
+}
+.activated {
+  background-color: #fbba00;
+  color: white;
+  border: none;
+}
+.unactivated {
+  background: none;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+
+.btnSec {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beforeBtn {
+  width: 48%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  background-color: gray;
+  color: white;
+}
+
+.nextBtn {
+  width: 48%;
+  height: 100%;
+  border: none;
+  background-color: #fbba00;
+  color: white;
+  border-radius: 10px;
+}

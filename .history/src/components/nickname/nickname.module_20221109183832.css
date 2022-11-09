@@ -1,0 +1,19 @@
+.input {
+  width: 90%;
+  height: 3em;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #fbba00;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.nextBtn {
+  width: 90%;
+  height: 4em;
+  background-color: #fbba00;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
