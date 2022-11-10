@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/dutchLogin/static/css/main.24803a15.css",
-    "main.js": "/dutchLogin/static/js/main.6b4df26d.js",
+    "main.js": "/dutchLogin/static/js/main.87ede177.js",
     "index.html": "/dutchLogin/index.html",
     "main.24803a15.css.map": "/dutchLogin/static/css/main.24803a15.css.map",
-    "main.6b4df26d.js.map": "/dutchLogin/static/js/main.6b4df26d.js.map"
+    "main.87ede177.js.map": "/dutchLogin/static/js/main.87ede177.js.map"
   },
   "entrypoints": [
     "static/css/main.24803a15.css",
-    "static/js/main.6b4df26d.js"
+    "static/js/main.87ede177.js"
   ]
 }
