@@ -15,6 +15,7 @@ const setRecatcha = () => {
       size: 'invisible',
       callback: (response) => {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
+        console.log(response);
       },
     },
     auth

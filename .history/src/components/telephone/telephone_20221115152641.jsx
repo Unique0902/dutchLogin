@@ -40,13 +40,13 @@ const Telephone = ({
         }`}
         id='sign-in-button'
         onClick={() => {
-          if (!isLoading1) {
+          if (!setIsLoading1) {
             setIsLoading1(true);
             onClick(setIsLoading1);
           }
         }}
       >
-        {isLoading1 ? <div className={styles.loading}></div> : '인증문자 받기'}
+        인증문자 받기
       </button>
       {showCheck && (
         <>
@@ -65,12 +65,10 @@ const Telephone = ({
               isCanCode ? styles.activated : styles.unactivated
             }`}
             onClick={() => {
-              if (!isLoading2) {
-                onConfirm(setIsLoading2);
-              }
+              onConfirm();
             }}
           >
-            {isLoading2 ? <div className={styles.loading}></div> : '인증'}
+            인증
           </button>
           {!isCodeRight && (
             <p className={styles.warnText}>

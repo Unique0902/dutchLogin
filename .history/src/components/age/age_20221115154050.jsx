@@ -26,6 +26,7 @@ const Age = ({
           onChange={() => {
             checkAge();
             setAge(parseInt(ageRef.current.value));
+            console.log(ageRef.current.value);
           }}
         />
         {!canAge && (
@@ -50,7 +51,7 @@ const Age = ({
             if (canApply) {
               if (!isLoading) {
                 setIsLoading(true);
-                makeUser(setIsLoading);
+                makeUser();
               }
             }
           }}

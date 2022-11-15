@@ -84,6 +84,7 @@ function App({ authService }) {
         if (ch != ' ' && (ch < '0' || ch > '9')) {
           setCanMsg(false);
           isCanMsg = false;
+          console.log('you cant msg!');
           break;
         }
       }
@@ -118,6 +119,7 @@ function App({ authService }) {
     }
 
     if (tel.length === 8) {
+      console.log('now!');
       if (isJump) {
         telRef.current.value = `${tel} `;
         isJump = false;

@@ -66,6 +66,7 @@ const Telephone = ({
             }`}
             onClick={() => {
               if (!isLoading2) {
+                setIsLoading2(true);
                 onConfirm(setIsLoading2);
               }
             }}

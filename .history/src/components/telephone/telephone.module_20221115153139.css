@@ -31,20 +31,17 @@
   border: none;
   cursor: pointer;
   margin-bottom: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .warnText {
   color: red;
   font-weight: 600;
 }
 .loading {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
   border: 2px solid lightgray;
-  border-top: 2px solid white;
+  border-top: 2px solid #fbba00;
   animation: spin 2s linear infinite;
 }
 

@@ -26,6 +26,7 @@ const Age = ({
           onChange={() => {
             checkAge();
             setAge(parseInt(ageRef.current.value));
+            console.log(ageRef.current.value);
           }}
         />
         {!canAge && (

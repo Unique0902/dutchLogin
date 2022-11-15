@@ -26,6 +26,7 @@ const Age = ({
           onChange={() => {
             checkAge();
             setAge(parseInt(ageRef.current.value));
+            console.log(ageRef.current.value);
           }}
         />
         {!canAge && (
@@ -50,16 +51,12 @@ const Age = ({
             if (canApply) {
               if (!isLoading) {
                 setIsLoading(true);
-                makeUser(setIsLoading);
+                makeUser();
               }
             }
           }}
         >
-          {isLoading ? (
-            <div className={styles.loading}></div>
-          ) : (
-            '같이 더치 시작하기'
-          )}
+          같이 더치 시작하기
         </button>
       </section>
     </section>

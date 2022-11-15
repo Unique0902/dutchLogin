@@ -9,12 +9,14 @@ const auth = getAuth();
 //auth.languageCode = 'it';
 
 const setRecatcha = () => {
+  console.log('setCatch');
   window.recaptchaVerifier = new RecaptchaVerifier(
     'sign-in-button',
     {
       size: 'invisible',
       callback: (response) => {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
+        console.log(response);
       },
     },
     auth
@@ -29,11 +31,15 @@ const sendMsg = (
 ) => {
   setRecatcha();
   const appVerifier = window.recaptchaVerifier;
+  console.log(phoneNumber);
+  console.log(auth);
+  console.log(appVerifier);
   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
     .then((confirmationResult) => {
       // SMS sent. Prompt user to type the code from the message, then sign the
       // user in with confirmationResult.confirm(code).
-      // alert('보냄');
+      alert('보냄');
+      console.log('보냈다.');
       setShowCheck(true);
       setConfirmationResult(confirmationResult);
       setIsLoading(false);
@@ -43,7 +49,8 @@ const sendMsg = (
       // Error; SMS not sent
       // ...
       console.log(error);
-      // alert(error, '못보냄');
+      console.log('못보냄');
+      alert(error, '못보냄');
       appVerifier.reset(window.recaptchaWidgetId);
     });
 };
@@ -64,14 +71,15 @@ const checkCode = (
       const user = result.user;
       const uid = user.uid;
       const refreshToken = user.stsTokenManager.refreshToken;
-      // alert('인증성공!', uid, refreshToken);
+      alert('인증성공!', uid, refreshToken);
       setIsCodeRight(true);
       authService.checkUser(uid).then((result) => {
-        // alert('유저체크되는중', result);
+        alert('유저체크되는중', result);
         if (result.name) {
           const name = result.name;
           setIsLoading(false);
-          // alert(name);
+          alert(name);
+          console.log(JSON.stringify({ uid, refreshToken, name }));
           window.ReactNativeWebView.postMessage(
             JSON.stringify({ uid, refreshToken, name })
           );
@@ -84,8 +92,9 @@ const checkCode = (
       });
     })
     .catch((error) => {
+      console.log('인증실패!!');
       console.log(error);
-      // alert('인증실패', error);
+      alert('인증실패', error);
       setIsLoading(false);
       setIsCodeRight(false);
       // User couldn't sign in (bad verification code?)

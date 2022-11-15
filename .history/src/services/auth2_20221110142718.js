@@ -17,7 +17,7 @@ export default class AuthService {
   };
 
   checkUser = async (uid) => {
-    return this.http.fetch(`/auth/check/${uid}`, {
+    return await this.http.fetch(`/auth/check/${uid}`, {
       method: 'GET',
     });
   };

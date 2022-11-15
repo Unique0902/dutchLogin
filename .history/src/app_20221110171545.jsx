@@ -32,30 +32,19 @@ function App({ authService }) {
       setCanApply(false);
     }
   }, [canAge, age, uid, sex, name]);
-  const onClick = (setIsLoading) => {
+  const onClick = () => {
     if (canMsg) {
       const phoneNum = telRef.current.value;
       if (phoneNum.length === 12) {
-        auth.sendMsg(
-          '+1' + phoneNum,
-          setShowCheck,
-          setConfirmationResult,
-          setIsLoading
-        );
+        auth.sendMsg('+1' + phoneNum, setShowCheck, setConfirmationResult);
       } else if (phoneNum.length === 13) {
-        auth.sendMsg(
-          '+82' + phoneNum,
-          setShowCheck,
-          setConfirmationResult,
-          setIsLoading
-        );
+        auth.sendMsg('+82' + phoneNum, setShowCheck, setConfirmationResult);
       }
     }
   };
-  const onConfirm = (setIsLoading) => {
+  const onConfirm = () => {
     const number = codeRef.current.value;
     if (number.length === 6) {
-      setIsLoading(true);
       auth.checkCode(
         number,
         setNowSettingPos,
@@ -63,14 +52,14 @@ function App({ authService }) {
         authService,
         setRefreshToken,
         setIsCodeRight,
-        confirmationResult,
-        setIsLoading
+        confirmationResult
       );
     }
   };
-  const makeUser = (setIsLoading) => {
+  const makeUser = () => {
+    console.log(uid, name, sex, age);
     authService.makeUser(uid, name, sex, age).then(() => {
-      setIsLoading(false);
+      console.log('유저 생성됨!');
       window.ReactNativeWebView.postMessage(
         JSON.stringify({ uid, refreshToken, name })
       );
@@ -84,6 +73,7 @@ function App({ authService }) {
         if (ch != ' ' && (ch < '0' || ch > '9')) {
           setCanMsg(false);
           isCanMsg = false;
+          console.log('you cant msg!');
           break;
         }
       }
@@ -118,6 +108,7 @@ function App({ authService }) {
     }
 
     if (tel.length === 8) {
+      console.log('now!');
       if (isJump) {
         telRef.current.value = `${tel} `;
         isJump = false;

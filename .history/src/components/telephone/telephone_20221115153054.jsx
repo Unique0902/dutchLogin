@@ -65,12 +65,10 @@ const Telephone = ({
               isCanCode ? styles.activated : styles.unactivated
             }`}
             onClick={() => {
-              if (!isLoading2) {
-                onConfirm(setIsLoading2);
-              }
+              onConfirm();
             }}
           >
-            {isLoading2 ? <div className={styles.loading}></div> : '인증'}
+            인증
           </button>
           {!isCodeRight && (
             <p className={styles.warnText}>

@@ -11,14 +11,13 @@ export default class AuthService {
         name,
         sex,
         age,
-        date: new Date(),
       }),
     });
     return data;
   };
 
   checkUser = async (uid) => {
-    return this.http.fetch(`/auth/check/${uid}`, {
+    return await this.http.fetch(`/auth/check/${uid}`, {
       method: 'GET',
     });
   };

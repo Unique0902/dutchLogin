@@ -15,15 +15,15 @@ export default class HttpClient {
     try {
       data = await res.json();
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
 
-    if (res.status > 299 || res.status < 200) {
-      const message =
-        data && data.message ? data.message : 'Something went wrong! 🤪';
-      const error = new Error(message);
-      throw error;
-    }
+    // if (res.status > 299 || res.status < 200) {
+    //   const message =
+    //     data && data.message ? data.message : 'Something went wrong! 🤪';
+    //   const error = new Error(message);
+    //   throw error;
+    // }
     return data;
   }
 }
